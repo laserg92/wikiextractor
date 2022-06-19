@@ -175,12 +175,10 @@ class OutputSplitter():
 
     def close(self):
         self.file.close()
-        if self.file.tell() == 0:
-            os.remove(self.file.name)
 
     def open(self, filename):
         if self.compress:
-            return bz2.BZ2File(filename + '.bz2', 'wb')
+            return bz2.BZ2File(filename + '.bz2', 'w')
         else:
             return open(filename, 'w')
 
